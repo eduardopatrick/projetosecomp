@@ -1,0 +1,10 @@
+pt-BR:
+  contacts:
+    edit:
+
+  activerecord:
+    models:
+      contact: Contato
+    attributes:
+      contact:
+        confirm: Confirmação

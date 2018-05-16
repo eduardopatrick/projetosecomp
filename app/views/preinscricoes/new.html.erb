@@ -1,0 +1,182 @@
+<div class="culmn">
+  <header id="main_menu" class="header navbar-fixed-top">
+    <div class="main_menu_bg1">
+      <div class="container">
+        <div class="row">
+          <div class="nave_menu">
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                  <a class="navbar-brand" href="/#home">
+                    <img src="logo.png"/>
+                  </a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                  <ul class="nav navbar-nav navbar-right">
+                    <li id="nav-text"> <%= link_to root_path do %>
+  <%= content_tag :span, "Página Inicial", :class => "home-link" %>
+<% end %></li>
+
+                  </ul>
+
+                </div>
+
+              </div>
+            </nav>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </header>
+  <div class="backG">
+
+    <div class="sm-margin-b-2"></div>
+    <div class="row">
+      <div class="container col-md-offset-3 col-sm-12 col-md-6">
+        <h3 class="title-form">Preencha os dados para cadastro.</h3><br><br>
+
+        <% @preinscricoe.errors.full_messages.each do |message| %>
+          <div class="alert alert-danger alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+            <strong>Erro!
+            </strong><%= message %>
+          </div>
+
+        <%end%>
+        <p> * A pré-inscrição deve ser realizada por 1 membro representante de cada equipe. Após a confirmação da pré-inscrição enviaremos um e-mail com instruções para pagamento e formalização da inscrição. </p>
+        <p> ** A inscrição só poderá ser completada seguindo as exigências descritas nos respectivos editais (Presentes na Página Inicial). </p>
+        <%= form_for @preinscricoe, :html => {:class => 'form-group' } do |f| %>
+        <div class="form-group">
+          <%= f.label "Selecione uma opção"%>
+          <div class="select">
+            <%= f.select(:choice,[['Pré-inscrição Maratona','Maratona'],['Pré-inscrição SmartIdea','Smartidea']], {prompt: "Opções"}, {class: "form-control", required: true})%>
+          </div>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :nome, label: 'Nome Completo', class: 'form-control', placeholder: "Insira seu Nome Completo", :required => true %>
+        </div>
+        <div class="form-group">
+          <%= f.number_field :idade, min:10, label: 'Idade', class: 'form-control', placeholder: "Insira sua Idade", :required => true  %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :instituicao, label: 'Instituição de Ensino', class: 'form-control', placeholder: "Instituição de Ens. Ex: Universidade Estadual do Ceará.", :required => true  %>
+        </div>
+        <div class="form-group">
+          <%= f.text_field :email, label: 'E-mail', class: 'form-control', placeholder: "Insira seu E-mail", :required => true  %>
+        </div>
+        <div class="form-group">
+          <%= f.check_box :confirm, {}, true, false %>
+          <%= label_tag(:confirm, "Li e concordo com os Termos de Serviço") %>
+          <a href="Termo.pdf" target="_blank"><h4 class="text-center text-muted"><img src="pdf_button.png" alt="PDF">Confira os Termos aqui.</h4></a>
+
+        </div>
+
+        <%= f.submit "Enviar dados", class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<section id="footer" class="footer_widget">
+        <div class="video_overlay">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-10 col-sm-offset-1">
+                        <div class="row">
+                            <div class="main_widget">
+                                <div class="col-sm-4 col-xs-12">
+                                    <div class="single_widget wow fadeIn" data-wow-duration="800ms">
+                                        <div class="footer_logo">
+                                            <img src="logo.png" alt="" />
+                                        </div>
+
+                                        <div class="main_clinetslogo">
+                           <h4>Realização:</h4>
+                           <div class="row">
+                               <div class="col-sm-4 col-xs-4">
+                                   <a href="http://www.uece.br" target="_blank">
+                                     <img border="0" alt="Logo Acensjr" src="uece.png">
+                                   </a>
+                               </div>
+                               <div class="col-sm-4 col-xs-4">
+                                    <a href="https://www.facebook.com/petcompoficial" target="_blank">
+                                   <img border="0" src="logo_petcomp2.png"  alt="Logo do PET Computação UECE"></a>
+                               </div>
+                               <div class="col-sm-4 col-xs-4">
+                                   <a href="http://www.acensjr.com" target="_blank" ><img border="0" alt="Uece" src="LogoAcens_semNome.png">
+                                   </a>
+                               </div>
+                           </div>
+                       </div>
+               </div>
+           </div>
+           <div class="col-sm-4  col-xs-12"><div class="single_widget wow fadeIn animated" data-wow-duration="800ms" style="visibility: visible; animation-duration: 800ms; animation-name: fadeIn;">
+                                             </div>
+                                         </div>
+                                         <div class="col-sm-4 col-xs-12">
+                                             <div class="single_widget wow fadeIn animated" data-wow-duration="800ms" style="visibility: visible; animation-duration: 800ms; animation-name: fadeIn;">
+                                                 <div class="footer_subcribs_area">
+                                                     <div class="single_widget wow fadeIn animated" data-wow-duration="800ms" style="visibility: visible; animation-duration: 800ms; animation-name: fadeIn;">
+                                                         <ul>
+                                                             <p><span class="titulo_contato">Contato</span></p>
+                                                             <li><a href=""><i class="fa fa-envelope"></i><span class="contato">pet.computacao@uece.br</span></a></li>
+                                                         </ul>
+                                                         <ul>
+                                                             <p><span class="titulo_contato">Endereço</span></p>
+                                                             <li><a href="https://www.google.com.br/search?ei=-UepWoaoMsmGwgTtvpj4Ag&q=como+chegar+uece&oq=como+chegar+uece&gs_l=psy-ab.3...5074.5816.0.5895.5.5.0.0.0.0.179.516.0j4.4.0....0...1.1.64.psy-ab..1.0.0....0.xK0u-pfrZ00" target="_blank"><i class="fa fa-map-marker"></i><span class="contato">Av. Dr. Silas Munguba, 1700 - Campus do Itaperi, Fortaleza - CE, 60741-000</span></a></li>
+                                                         </ul>
+                                                         <p><span class="titulo_contato">Redes Sociais - Pet Computação</span></p>
+                                                         <ul class="list-inline">
+                                                             <li>
+                                                                 <a href="https://www.facebook.com/petcompoficial" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
+                                                             </li>
+
+                                                             <li>
+                                                                 <a href="https://www.instagram.com/petcomputacao/" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
+                                                             </li>
+                                                         </ul>
+                                                         <p><span class="titulo_contato">Redes Sociais - Acens.Jr</span></p>
+                                                         <ul class="list-inline">
+                                                             <li>
+                                                                 <a href="https://www.facebook.com/acensjr" target="_blank"><i class="fa fa-facebook fa-3x"></i></a>
+                                                             </li>
+
+                                                             <li>
+                                                                 <a href="https://www.instagram.com/acensjr/" target="_blank"><i class="fa fa-instagram fa-3x"></i></a>
+                                                             </li>
+                                                         </ul>
+                                                     </div>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                                 <div class="main_footer text-center">
+                                     <div class="row">
+                                         <div class="col-sm-12 col-xs-12">
+                                             <div class="copyright_text">
+                                                 <p class="wow fadeInRight text-right animated" data-wow-duration="1s" style="visibility: visible; animation-duration: 1s; animation-name: fadeInRight;">Feito com <i class="fa fa-heart"></i>Por Pet Computação e Acens</p>
+                                             </div>
+                                         </div>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
+    </section>
+    </div>
+
+    </div>
+</body>
